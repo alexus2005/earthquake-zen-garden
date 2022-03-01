@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+.main-header {
+  background: $light-grey;
+  padding: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  h1 {
+    text-align: center;
+    font-size: 3.2rem;
+    line-height: 4.5rem;
+  }
+
+  .main-logo {
+    height: 50px;
+  }
+
+  .welcome-trigger {
+    display: block;
+    float: right;
+    margin-top: 15px;
+  }
+}
