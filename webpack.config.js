@@ -5,31 +5,36 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.[hash].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist")
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-    }),
+      template: "./src/index.html"
+    })
   ],
   resolve: {
     modules: [__dirname, "src", "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"]
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
+        enforce: "pre",
+        use: ["source-map-loader"]
+      },
+      {
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: require.resolve("babel-loader"),
+        loader: require.resolve("babel-loader")
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.png|svg|jpg|gif$/,
-        use: ["file-loader"],
+        use: ["file-loader"]
       },
       {
         test: /\.s[ac]ss$/i,
@@ -39,9 +44,9 @@ module.exports = {
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
-          "sass-loader",
-        ],
-      },
-    ],
-  },
+          "sass-loader"
+        ]
+      }
+    ]
+  }
 };
