@@ -5,6 +5,12 @@
 
 // Global
 @import "./global.scss";
+@import "./content.scss";
 
 // Components
-@import "./header.scss";
+@import "./components/header.scss";
+@import "./components/feature-details.scss";
+@import "./components/features-list.scss";
+@import "./components/column-heading.scss";
+@import "./components/profile.scss";
+@import "./components/page-heading.scss";

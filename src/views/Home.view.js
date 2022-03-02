@@ -1,5 +1,10 @@
 import React from "react";
 
-import { FeatureList } from "../components";
+import { FeatureList, PageHeading } from "../components";
 
-export default () => <FeatureList />;
+export default () => (
+  <>
+    <PageHeading text="USGS All Earthquakes, Past Hour" />
+    <FeatureList />
+  </>
+);

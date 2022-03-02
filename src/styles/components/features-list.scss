@@ -1,0 +1,22 @@
+.features-list {
+  margin: 0 auto;
+
+  .feature-list-magnitude {
+    text-align: center;
+  }
+
+  a {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  th {
+    padding: 0px 0px 10px 0px;
+    text-align: center;
+  }
+
+  td {
+    font-weight: bold;
+  }
+}

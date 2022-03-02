@@ -1,3 +1,4 @@
 import React from "react";
+import { PageHeading } from "../components";
 
-export default () => <>404 Not found.</>;
+export default () => <><PageHeading text="404 Not Found" /></>;

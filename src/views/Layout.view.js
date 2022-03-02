@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import { Header, FeatureList } from "../components";
+import { Header } from "../components";
 
 export default () => (
   <>

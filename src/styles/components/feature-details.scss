@@ -1,0 +1,13 @@
+.feature-details-container {
+  margin: 0 auto;
+  display: table;
+
+  table {
+    min-width: 550px;
+  }
+
+  .feature-aspect-label {
+    font-weight: bold;
+    width: 30%;
+  }
+}

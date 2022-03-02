@@ -1,48 +1,70 @@
 import React from "react";
+import { string, number, shape } from "prop-types";
+
+import { formatTime } from "../services/time.service";
 
 const renderFeatureAspect = ({ label, value }) => (
-  <tr>
+  <tr key={label}>
     <td className="feature-aspect-label">{label}</td>
     <td className="feature-aspect-value">{value}</td>
   </tr>
 );
 
-const FeatureAspects = aspects => aspects.map(renderFeatureAspect);
+const FeatureAspects = ({ aspects }) => aspects.map(renderFeatureAspect);
 
-export default ({
-  properties: { place, title, mag, time, status, tsunami, type },
-}) => {
+function FeatureDetails({
+  feature: {
+    properties: { title, mag, time, status, tsunami, type }
+  }
+}) {
   const aspects = [
     {
       label: "Title",
-      value: { title },
+      value: title
     },
     {
       label: "Magnitude",
-      value: { mag },
+      value: mag
     },
     {
       label: "Time",
-      value: { time },
+      value: formatTime(time)
     },
     {
       label: "Status",
-      value: { status },
+      value: status
     },
     {
       label: "Tsunami",
-      value: { tsunami },
+      value: tsunami
     },
     {
       label: "Type",
-      value: { type },
-    },
+      value: type
+    }
   ];
 
   return (
     <section className="feature-details-container">
-      <h1>{place}</h1>
-      <FeatureAspects aspects={aspects} />
+      <table>
+        <tbody>
+          <FeatureAspects aspects={aspects} />
+        </tbody>
+      </table>
     </section>
   );
+}
+
+FeatureDetails.propTypes = {
+  feature: shape({
+    properties: shape({
+      title: string.isRequired,
+      mag: number.isRequired,
+      time: number.isRequired,
+      status: string.isRequired,
+      type: string.isRequired
+    })
+  })
 };
+
+export default FeatureDetails;

@@ -1,0 +1,12 @@
+.column-heading {
+  cursor: pointer;
+
+  &:hover {
+    color: $medium-grey;
+  }
+
+  .arrow-container {
+    display: inline-block;
+    width: 20px;
+  }
+}

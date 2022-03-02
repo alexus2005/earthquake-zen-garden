@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { getFeatureById } from "../data/data.service";
-import { FeatureDetails } from "../components";
+import { getFeatureById } from "../services/data.service";
+import { FeatureDetails, PageHeading } from "../components";
 
 export default () => {
   const { featureId } = useParams();
-  const feature = getFeatureById(featureId);
+  const [feature, setFeature] = useState();
 
-  console.log(feature);
+  useEffect(async () => setFeature(await getFeatureById(featureId)));
 
-  return feature ? <FeatureDetails feature={feature} /> : <></>;
+  return (
+    <>
+      {feature ? (
+        <>
+          <PageHeading text={feature.properties.title} />
+          <FeatureDetails feature={feature} />
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  );
 };
