@@ -1,0 +1,63 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react-hooks"],
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "rules": {
+    "no-console": "off",
+    "no-shadow": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": "off",
+    "linebreak-style": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": "off",
+    "react/no-unknown-property": ["error", { "ignore": ["class"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/static-property-placement": "off",
+    "react/sort-comp": "off",
+    "react/prop-types": "off",
+    "react/state-in-constructor": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": true,
+    "sinon": true
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js", "*.spec.js"],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src/js"],
+          ["@configuration", "./src/js/configuration"],
+          ["@constants", "./src/js/constants"],
+          ["@models", "./src/js/models"],
+          ["@mappings", "./src/js/mappings"],
+          ["@reducers", "./src/js/reducers"],
+          ["@utils", "./src/js/utils"],
+          ["@services", "./src/js/services"],
+          ["@components", "./src/js/components"],
+          ["@elements", "./src/js/components/elements"],
+          ["@actions", "./src/js/actions"],
+          ["@scss", "./src/scss"]
+        ]
+      }
+    }
+  }
+}
